@@ -6,7 +6,7 @@ from botocore.config import Config
 # ---- Config ----
 STREAM_NAME = os.getenv("KINESIS_STREAM", "finance-stream")
 KINESIS_ENDPOINT = os.getenv("KINESIS_ENDPOINT", "http://localhost:4566")
-REGION = os.getenv("AWS_REGION", "us-east-2")
+REGION = os.getenv("AWS_REGION", "us-east-1")
 SLEEP_SECS = float(os.getenv("SLEEP_SECS", "2"))
 TXN_COUNT = int(os.getenv("TXN_COUNT", "0"))  # 0 = infinite
 
@@ -19,7 +19,7 @@ CATEGORIES = ["groceries", "entertainment", "transport", "subscriptions", "dinin
 # Kinesis client (LocalStack endpoint)
 kinesis = boto3.client(
     "kinesis",
-    region_name="eu-west-2",
+    region_name="us-east-1",
     endpoint_url="http://localhost:4566",
     aws_access_key_id=os.getenv("AWS_ACCESS_KEY_ID", "test"),
     aws_secret_access_key=os.getenv("AWS_SECRET_ACCESS_KEY", "test"),

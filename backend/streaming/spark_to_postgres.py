@@ -27,9 +27,9 @@ spark = (SparkSession.builder
 raw = (spark.readStream
     .format("aws-kinesis")
     .option("kinesis.streamName", "finance-stream")
-    .option("kinesis.region", "eu-west-2")                    # must match the stream’s region
+    .option("kinesis.region", "us-east-1")                    # must match the stream’s region
     .option("kinesis.endpointUrl", "http://localhost:4566")   # avoid DNS hostnames
-    .option("kinesis.endpointSigningRegion", "eu-west-2")     # tell the SDK which region to sign for
+    .option("kinesis.endpointSigningRegion", "us-east-1")     # tell the SDK which region to sign for
     .option("kinesis.startingposition", "TRIM_HORIZON")       # or LATEST
     .option("aws.credentials.provider", "STATIC")
     .option("aws.accessKeyId", "test")
